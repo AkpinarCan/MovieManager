@@ -6,71 +6,47 @@ using System.Threading.Tasks;
 
 namespace movieManager.Models
 {
-    public class Book
+    public class Movie
     {
-        // Kitap ID'si
+        // Film ID'si
         public int Id { get; set; }
 
-        // Kitap ismi
-        public string Name { get; set; }
+        // Film ismi
+        public string Title { get; set; }
 
-        // Kitap türü
+        // Film türü
         public string Type { get; set; }
 
-        // Kitap fiyatı
-        public float Price { get; set; }
-
-        // Yazar
-        public string Author { get; set; }
+        // Yönetmen
+        public string Director { get; set; }
 
         // Yayın yılı
-        public int PublicationYear { get; set; }
+        public int ReleaseYear { get; set; }
 
-        // ISBN numarası
-        public string ISBN { get; set; }
+        // IMDb numarası
+        public string IMDb { get; set; }
 
-        // Sayfa sayısı
-        public int PageCount { get; set; }
+        // Süre (dakika)
+        public int Duration { get; set; }
 
-        // Yayıncı
-        public string Publisher { get; set; }
+        // Yapımcı
+        public string Producer { get; set; }
 
-        // Durum (örneğin, kullanılabilir, ödünç alındı vb.)
-        public string Status { get; set; }
-
-        // Kütüphanedeki yeri
-        public string Location { get; set; }
-
-        // Alan kişi
-        public int VisiterId { get; set; }
-
-        // Ödünç verilmesinden itibaren geçen süre
-        public int Total { get; set; }
-
-        // Ceza durumu
-        public bool Criminal { get; set; }
-
-        public Book(int id, string name, string type, float price, string author, int publicationYear, string isbn, int pageCount, string publisher, string status, string location, int visiterId, int total, bool criminal)
+        public Movie(int id, string title, string type, string director, int releaseYear, string imdb, int duration, string producer)
         {
             this.Id = id;
-            this.Name = name;
+            this.Title = title;
             this.Type = type;
-            this.Price = price;
-            this.Author = author;
-            this.PublicationYear = publicationYear;
-            this.ISBN = isbn;
-            this.PageCount = pageCount;
-            this.Publisher = publisher;
-            this.Status = status;
-            this.Location = location;
-            this.VisiterId = visiterId;
-            this.Total = total;
-            this.Criminal = criminal;
+            this.Director = director;
+            this.ReleaseYear = releaseYear;
+            this.IMDb = imdb;
+            this.Duration = duration;
+            this.Producer = producer;
         }
 
         public override string ToString()
         {
-            return $"{Id} - {Name} - {Type} - {Price} - {Author}";
+            return $"{Id} - {Title} - {Type} - {Director}";
         }
     }
 }

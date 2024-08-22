@@ -24,7 +24,7 @@ namespace movieManager.Data
             if (_connection.State == System.Data.ConnectionState.Closed)
             {
                 _connection.Open();
-                Console.WriteLine("- Bağlantı başarılı -");
+                //Console.WriteLine("- Bağlantı başarılı -");
             }
             return _connection;
         }
@@ -35,7 +35,7 @@ namespace movieManager.Data
             if (_connection.State == System.Data.ConnectionState.Open)
             {
                 _connection.Close();
-                Console.WriteLine("Kapatılılıyor");
+                //Console.WriteLine("- Bağlantı Kapatılılıyor -");
             }
         }
 
