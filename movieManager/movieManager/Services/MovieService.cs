@@ -26,7 +26,6 @@ namespace movieManager.Services
         {
             _command.Parameters.Clear();
 
-            // Tablo oluşturma komutu
             _command.CommandText = @"
                 CREATE TABLE IF NOT EXISTS Movies (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,10 +38,8 @@ namespace movieManager.Services
                     Producer TEXT
                 )";
 
-            // Tablo oluşturma işlemi
             _command.ExecuteNonQuery();
 
-            // Tabloyu kontrol eden sorgu
             _command.CommandText = @"
                 SELECT name 
                 FROM sqlite_master 
