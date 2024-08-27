@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
 
 namespace movieManager.Forms
 {
@@ -124,9 +125,34 @@ namespace movieManager.Forms
             }
         }
 
+        private void SignAreaClear()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            string username = textBox2.Text.Trim();
+            string password = textBox3.Text.Trim();
+            string tc = textBox5.Text.Trim();
+            string mail = textBox4.Text.Trim();
+            string birthDate = textBox1.Text.Trim();
 
+            UserValidator validator = new UserValidator();
+
+            if (validator.ValidateUserInputs(username, password, tc, mail,birthDate, out string errorMessage))
+            {
+                SignAreaClear();
+                _authenticationService.AddUser(username,password,tc,mail,birthDate);
+            }
+            else
+            {
+                MessageBox.Show(errorMessage);
+            }
         }
 
         private void TakeString()
@@ -134,6 +160,18 @@ namespace movieManager.Forms
             string username = textBox2.Text.Trim();
             string password = textBox3.Text.Trim();
             string tc = textBox5.Text.Trim();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            username.Text = "";
+            error1.Visible = false;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            password.Text = "";
+            error2.Visible = false;
         }
     }
 }
